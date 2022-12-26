@@ -16,7 +16,6 @@ export default function Home({ allPostsData })
         <div>Ma super vie</div>
         <div>
           Ceci est un super blog fait. Je bosse chez <a href="https://6freedom.studio">6freedom</a>.
-          <li><Link href="/posts/first-post"> Mon article sur les limaces</Link></li>
         </div>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
