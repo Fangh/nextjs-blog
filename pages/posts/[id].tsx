@@ -1,9 +1,9 @@
 import Layout from "../../components/layout";
+import Date from "../../components/date";
 import { getAllPostIDs, getPostData } from "../../lib/postsGenerator";
 import Head from 'next/head';
-import Date from "../../components/date";
-import utilStyles from '../../styles/utils.module.css';
 import { GetStaticPaths, GetStaticProps } from "next";
+import { Box, Typography } from "@mui/material";
 
 ///postData = what getStaticProps returns
 export default function Post({ postData })
@@ -13,13 +13,17 @@ export default function Post({ postData })
             <Head>
                 <title>{postData.title}</title>
             </Head>
-            <article>
-                <h1 className={utilStyles.headingX1}>{postData.title}</h1>
-                <div className={utilStyles.lightText}>
-                    <Date dateString={postData.date} />
-                </div>
-                <div dangerouslySetInnerHTML={{ __html: postData.contentHTML }} />
-            </article>
+            <Box marginTop={5}>
+                <article>
+                    <Typography variant={"h2"} component={"h2"}>{postData.title}</Typography>
+                    <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                        <Date dateString={postData.date} />
+                    </Typography>
+                    <Typography variant={"body1"} component={"p"}>
+                        <div dangerouslySetInnerHTML={{ __html: postData.contentHTML }} />
+                    </Typography>
+                </article>
+            </Box>
         </Layout>)
 }
 
